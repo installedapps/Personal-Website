@@ -1,0 +1,4 @@
+---
+import { contact } from '../data/site';
+---
+<footer class="site-footer"><p>Built with Astro, curiosity, and a healthy respect for whitespace.</p><div class="footer-links"><a href={`mailto:${contact.email}`}>Email</a><a href={contact.github} target="_blank" rel="noreferrer">GitHub</a><a href={contact.linkedin} target="_blank" rel="noreferrer">LinkedIn</a></div><p>&copy; {new Date().getFullYear()} Artur Gamrat</p></footer>

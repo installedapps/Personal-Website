@@ -1,0 +1,56 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+interface PostModule {
+    frontmatter: {
+        title: string;
+        description: string;
+        pubDate: string;
+        displayDate: string;
+        readingTime: string;
+    };
+    url: string;
+}
+
+const modules = import.meta.glob<PostModule>("./posts/*.md", { eager: true });
+const posts = Object.values(modules).sort(
+    (a, b) =>
+        new Date(b.frontmatter.pubDate).getTime() -
+        new Date(a.frontmatter.pubDate).getTime(),
+);
+---
+
+<BaseLayout
+    title="Posts"
+    description="Notes on engineering, design, and building for the web."
+    ><header class="page-intro">
+        <p class="eyebrow">Writing</p><h1>
+            Notes from the <span class="outline">workbench.</span>
+        </h1><p>
+            Thoughts on building better software, keeping systems simple, and
+            learning in public.
+        </p>
+    </header><ul class="list">
+        {
+            posts.map((post) => (
+                <li class="list-item">
+                    <>
+                        <time datetime={post.frontmatter.pubDate}>
+                            {post.frontmatter.displayDate}
+                        </time>
+                        <div>
+                            <>
+                                <h2>
+                                    <a class="text-link" href={post.url}>
+                                        {post.frontmatter.title}
+                                    </a>
+                                </h2>
+                                <p>{post.frontmatter.description}</p>
+                            </>
+                        </div>
+                        <span class="meta">{post.frontmatter.readingTime}</span>
+                    </>
+                </li>
+            ))
+        }
+    </ul></BaseLayout
+>

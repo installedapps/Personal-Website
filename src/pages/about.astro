@@ -1,0 +1,53 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { contact } from "../data/site";
+---
+
+<BaseLayout
+    title="About"
+    description="About Artur Gamrat and the principles behind the work."
+    ><header class="page-intro">
+        <p class="eyebrow">About</p><h1>
+            Technology with a <span class="outline">human point of view.</span>
+        </h1><p>
+            I care about the small decisions that make software feel clear,
+            capable, and worth returning to.
+        </p>
+    </header><section class="content-grid">
+        <aside>01 / Background</aside><div class="prose">
+            <h2>Masters Graduate, aspiring programmer and developer.</h2><p>
+                I’m a developer based in {contact.location}. My work sits where
+                robust engineering meets considered design: performant websites,
+                useful product interfaces, and systems that remain
+                understandable as they grow.
+            </p><p>
+                I started by pulling apart computers to understand how they
+                work. From there it was flashing custom ROMS onto my Samsung S2,
+                I have had a lifelong passion for technology and I am always
+                willing to explore new boundaries.
+            </p><p>
+                Away from the keyboard, you’ll find me reading, making coffee,
+                or looking for a darker patch of sky.
+            </p>
+        </div>
+    </section><section class="contact-section">
+        <p class="eyebrow">Contact</p><h2>Let’s talk.</h2><p>
+            For opportunities, collaboration, or a quick conversation, send me
+            an email or find me online.
+        </p><div class="contact-links">
+            <a class="button" href={`mailto:${contact.email}`}
+                >{contact.email}</a
+            ><a
+                class="button secondary"
+                href={contact.github}
+                target="_blank"
+                rel="noreferrer">GitHub</a
+            ><a
+                class="button secondary"
+                href={contact.linkedin}
+                target="_blank"
+                rel="noreferrer">LinkedIn</a
+            >
+        </div>
+    </section></BaseLayout
+>

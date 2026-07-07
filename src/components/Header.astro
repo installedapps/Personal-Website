@@ -1,0 +1,43 @@
+---
+const pathname = Astro.url.pathname;
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const withBase = (path: string) => `${base}${path}` || "/";
+const relativePath = pathname.slice(base.length) || "/";
+---
+
+<header class="site-header">
+    <a class="wordmark" href={withBase("/")} aria-label="Artur Gamrat, home"
+        ><span class="wordmark-mark">AG</span><span>Artur Gamrat</span></a
+    >
+    <nav aria-label="Main navigation">
+        <ul>
+            <li>
+                <a
+                    href={withBase("/")}
+                    aria-current={relativePath === "/" ? "page" : undefined}
+                    >Home</a>
+            </li>
+            <li>
+                <a
+                    href={withBase("/about/")}
+                    aria-current={relativePath === "/about/"
+                        ? "page"
+                        : undefined}>About</a>
+            </li>
+            <li>
+                <a
+                    href={withBase("/posts/")}
+                    aria-current={relativePath === "/posts/"
+                        ? "page"
+                        : undefined}>Posts</a>
+            </li>
+            <li>
+                <a
+                    href={withBase("/projects/")}
+                    aria-current={relativePath === "/projects/"
+                        ? "page"
+                        : undefined}>Projects</a>
+            </li>
+        </ul>
+    </nav>
+</header>

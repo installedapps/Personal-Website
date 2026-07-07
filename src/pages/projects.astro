@@ -1,0 +1,5 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { projects } from '../data/site';
+---
+<BaseLayout title="Projects" description="Selected development and design projects."><header class="page-intro"><p class="eyebrow">Projects</p><h1>Built with intent. <span class="outline">Made to last.</span></h1><p>A selection of digital products and experiments, from early thinking through working code.</p></header><section class="section"><div class="grid project-grid">{projects.map((project, index) => <article class="card project-card"><span class="tag">{String(index + 1).padStart(2, '0')} · {project.type}</span><h2>{project.title}</h2><p>{project.description}</p><p class="project-tech">{project.technologies}</p><a class="project-link" href={project.url} target="_blank" rel="noreferrer">View on GitHub <span aria-hidden="true">↗</span></a></article>)}</div></section></BaseLayout>

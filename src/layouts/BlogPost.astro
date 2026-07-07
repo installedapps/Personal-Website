@@ -1,0 +1,32 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+    frontmatter: {
+        title: string;
+        description: string;
+        pubDate: string;
+        displayDate: string;
+        readingTime: string;
+        author: string;
+        tags: string[];
+    };
+}
+
+const { frontmatter } = Astro.props;
+---
+<BaseLayout title={frontmatter.title} description={frontmatter.description}>
+    <article class="article">
+        <a class="back-link" href={`${import.meta.env.BASE_URL}posts/`}>← All posts</a>
+        <header class="article-header">
+            <p class="eyebrow">Article</p>
+            <h1>{frontmatter.title}</h1>
+            <div class="article-meta">
+                <time datetime={frontmatter.pubDate}>{frontmatter.displayDate}</time>
+                <span>{frontmatter.readingTime} READ</span>
+                <span>By {frontmatter.author}</span>
+            </div>
+        </header>
+        <div class="article-body"><slot /></div>
+    </article>
+</BaseLayout>

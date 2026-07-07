@@ -1,0 +1,26 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+    title="Creative Developer"
+    description="Portfolio of Artur Gamrat, a developer building thoughtful digital experiences."
+    ><section class="hero">
+        <div>
+            <p class="eyebrow">Developer &amp; digital maker</p><h1>
+                I build ideas for the <span class="outline">digital world.</span
+                >
+            </h1><p class="lead">
+                I’m Artur, a Melbourne-based developer focused on fast,
+                accessible, and quietly distinctive experiences.
+            </p><div class="actions">
+                <a class="button" href={`${import.meta.env.BASE_URL}projects/`}
+                    >Explore my work</a
+                ><a
+                    class="button secondary"
+                    href={`${import.meta.env.BASE_URL}about/`}>More about me</a
+                >
+            </div>
+        </div>
+    </section>
+</BaseLayout>
