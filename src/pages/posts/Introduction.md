@@ -3,7 +3,7 @@ layout: ../../layouts/BlogPost.astro
 title: Welcome to my site
 description: Introductory post
 pubDate: 2026-01-14
-displayDate: 14 JAN 2026
+displayDate: 07 JUL 2026
 readingTime: 5 MIN
 author: Artur Gamrat
 tags: [performance, web development, user experience]
