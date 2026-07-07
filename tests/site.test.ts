@@ -79,4 +79,13 @@ describe('interaction and presentation', () => {
     expect(archive).toMatch(/import\.meta\.glob<PostModule>\(["']\.\/posts\/\*\.md["']/);
     expect(archive).toContain('Object.values(modules).sort');
   });
+
+  it('offers the public résumé for download from Home and About', () => {
+    expect(() => read('public/resume.pdf')).not.toThrow();
+    for (const page of ['index', 'about']) {
+      const source = read(`src/pages/${page}.astro`);
+      expect(source).toContain('resume.pdf');
+      expect(source).toContain('download="Artur-Gamrat-Resume.pdf"');
+    }
+  });
 });
